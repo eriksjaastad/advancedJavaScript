@@ -1,2 +1,2 @@
-# advancedJavaScript
-Class projects from Thomas Willbun
+# advanced JavaScript 
+Nodejs projects from Thomas Willbun
