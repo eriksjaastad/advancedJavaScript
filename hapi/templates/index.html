@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<span class="login">Hello, {{user}}</span>
+	<h1> working....!</h1>
+	<form action="/order" method="POST">
+		<input name="pizza">
+		<select name="size">
+			<option value="l">larg</option>
+			<option value="s">small</option>
+		</select>
+		<lable for="phone">phone</lable>
+		<input name="phone">
+		<input type="submit">
+	</form>
+	<ul>
+		{{#each pizzas}}
+			<li>{{pizza}} - {{phone}}
+		{{/each}}
+	</ul>
+</body>
+</html>
