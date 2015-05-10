@@ -1,0 +1,12 @@
+body {
+	font-family: sans-serif;
+}
+
+nav a {
+	text-decoration: none;
+	border-bottom: 1px dotted black;
+	color: black;
+}
+aside {
+	float: right;
+}
