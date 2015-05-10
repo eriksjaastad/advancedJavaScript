@@ -5,28 +5,34 @@ var request = require("request"),
 var url = "https://en.wikipedia.org/wiki/May_8";
 request(url, function(err, responce, body) {
 	$ = cheerio.load(body);
-	// console.log($('#Births').parent('h2').next('ul').html());
-	// console.log($('#Deaths').parent('h2').next('ul').html());
-	var makeList = function(bd) {
-		list = $('#' + bd + '').parent('h2').next('ul').html();
-		list = list.split("\n");
-		return list;
-	};
 	// var births = $('#Births').parent('h2').next('ul').html(),
 	// 	deaths = $('#Deaths').parent('h2').next('ul').html();
-
-	var count = function(bd) {
-		list = bd.split("\n");
-		return list.length
+	var each = function(list, f) {
+		for(var i = 0; i < list.length; i++) {
+			var name = list[i];
+			f(name, i)
+		}
 	};
 
-	var names = function(bd) {
-		list = bd.getElementsByTagName('a');
-		return list.innerHTML;
+	var makeList = function() {
+		data = $('#Births').parent('h2').next('ul').html();
+		list = data.split("\n");
+
+		// return list.length;
 	};
 
-	console.log(makeList('Births'));
+	// var count = function(name,  index) {
+	// 	console.log(name + " " + index);
+	// };
 
+	// var names = function(bd) {
+	// 	list = bd.getElementsByTagName('a');
+	// 	return list.innerHTML;
+	// };
+
+
+	each(makeList, count);
+	//console.log(makeList('Births'));
 	// console.log(births);
 	// console.log(births('a').innerHTML);
 	// console.log('Number of Births ' + count(births) + 

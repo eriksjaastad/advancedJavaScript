@@ -52,13 +52,13 @@ var each = function(list, f) {
 	for(var i = 0; i < list.length; i++) {
 		//f is passed an item and its index
 		var item = list[i];
-		f(item, i)
+		f(item, i);
 	}
 };
 
 var names = ['name1', 'name2', 'name3'];
 var greet = function(name, index) {
-	console.log("hello, " + name + "(#" +index)
+	console.log("hello, " + name + "(#" + index ")");
 };
 each(names, greet);
 
