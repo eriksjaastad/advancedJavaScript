@@ -1,0 +1,7 @@
+
+body {
+	-webkit-transition: -webkit-transform 1s linear;
+	        transition: transform 1s linear;
+	-webkit-transform : rotateZ(30deg);
+	        transform : rotateZ(30deg);
+}
