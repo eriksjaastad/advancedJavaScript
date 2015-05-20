@@ -6,24 +6,34 @@ var url = "https://en.wikipedia.org/wiki/May_8";
 
 request(url, function(err, responce, body) {
 	var $ = cheerio.load(body);
-	var title = [], count = [], names = [];
-	var json = {title : '', count : '', names: ''};
+	var data = {};
 
-	var getInfo = function(id, i) {
-		$('#' + id + '').filter(function(){
-			title[i] = $(this).text();
 
-			$(this).parent().next().children().children().each(function(i, el){
-				names[i] = $(this).next('a:nth-child(2)').text();
-			});
-
-			count[i] = names.length;
-
-			json.title = title;
-			json.count = count;
-			json.names = names.filter(Boolean);
+	["#births", "#deaths"].forEach(function(type){
+		var names = $(this).parent().next().children().children().each(function(i, el) {
+			$(this).next('a:nth-child(2').text;
 		});
-	};
+		data[type] = {
+			count: names.length,
+			names: names.map(function(element){return element.text()})
+		};
+	});
+
+	// var getInfo = function(id, i) {
+	// 	$('#' + id + '').filter(function(){
+	// 		title[i] = $(this).text();
+
+	// 		$(this).parent().next().children().children().each(function(i, el){
+	// 			names[i] = $(this).next('a:nth-child(2)').text();
+	// 		});
+
+	// 		count[i] = names.length;
+
+	// 		json.title = title;
+	// 		json.count = count;
+	// 		json.names = names.filter(Boolean);
+	// 	});
+	// };
 
 	var each = function(list, f) {
 		var i, item;
@@ -32,7 +42,6 @@ request(url, function(err, responce, body) {
 			f(item, i);
 		}
 	};
-	var bd = ['Births', 'Deaths'];
-	each(bd, getInfo);
-	console.log(json);
+
+	console.log(data);
 });
