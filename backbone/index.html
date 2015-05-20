@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Backbone</title>
+	<title>Backbone calculator</title>
 </head>
 <body>
+<div class="calculator"></div>
 
-
-<script type="text/html" id="hello_template">
-	<div>
-		hello, <%= name %>!
-	</div>
+<script type="text/html" id="calc-template">
+	<div class="output"><%= result %></div>
+	<input class="input">
+	<button class="operation" data-op="add">+</button>
+	<button class="operation" data-op="subtract">-</button>
 </script>
+
+
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.9.0/lodash.min.js"></script>
-<script>
-	var templateScript = $("#hello_template");
-	var html = templateScript.html();
-	console.log(html);
-</script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.0/backbone-min.js"></script>
+<script src="scripts.js"></script>
 </body>
 </html>
