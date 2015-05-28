@@ -11,6 +11,9 @@ var CalculatorModel = Backbone.Model.extend({
 		//add or sub or mult or divide
 		if(operation == "add") {
 			var output = value + input;
+		} 
+		if(operation == "subtract") {
+			var output = value - input;
 		}
 		//set result
 		this.set("result", output);
